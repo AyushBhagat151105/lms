@@ -17,7 +17,7 @@ export default async function Home() {
 
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen w-screen flex-col">
       <main className="flex-grow container mx-auto px-4 py-16">
         <div className='text-center mb-16'>
           <h1 className='text-4xl font-extrabold tracking-tight lg:text-5xl mb-4'>
