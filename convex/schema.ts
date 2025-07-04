@@ -6,6 +6,8 @@ export default defineSchema({
     email: v.string(),
     name: v.string(),
     clerkId: v.string(),
+    stripeCustomerId: v.string(),
+    currentSubscriptionId: v.optional(v.id("subscriptions")),
   }).index("by_clerkId", ["clerkId"]),
 
   courese: defineTable({
@@ -14,4 +16,22 @@ export default defineSchema({
     imageUrl: v.string(),
     price: v.number(),
   }),
+
+  purchases: defineTable({
+    userId: v.id("users"),
+    courseId: v.id("courese"),
+    amount: v.number(),
+    purchaseData: v.number(),
+    stripePurchaseId: v.string(),
+  }).index("by_userId_and_courseId", ["userId", "courseId"]),
+
+  subscriptions: defineTable({
+    userId: v.id("users"),
+    planType: v.union(v.literal("month"), v.literal("year")),
+    currentPeriodStart: v.number(),
+    currentPeriodEnd: v.number(),
+    stripeSubscriptionId: v.string(),
+    status: v.string(),
+    cancelAtPeriodEnd: v.boolean(),
+  }).index("by_stripeSubscriptionId", ["stripeSubscriptionId"]),
 });
