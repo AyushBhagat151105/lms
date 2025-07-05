@@ -7,6 +7,7 @@ import { api } from "../../convex/_generated/api"
 import { Button } from "./ui/button"
 import { Loader2Icon } from "lucide-react"
 import { useState } from "react"
+import { toast } from "sonner"
 
 
 
@@ -35,8 +36,10 @@ function PurchaseButton(
             } else {
                 throw new Error("Checkout URL not found.")
             }
-        } catch (error) {
-            console.log("Error creating checkout session:", error);
+        } catch (error: any) {
+            if (error.message.includes("Rate limit exceeded")) {
+                toast.error("You have exceeded the purchase limit. Please try again later.")
+            }
         } finally {
             setIsLoading(false)
         }
