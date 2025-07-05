@@ -39,6 +39,8 @@ function PurchaseButton(
         } catch (error: any) {
             if (error.message.includes("Rate limit exceeded")) {
                 toast.error("You have exceeded the purchase limit. Please try again later.")
+            } else {
+                toast.error("An error occurred while processing your purchase. Please try again.")
             }
         } finally {
             setIsLoading(false)
