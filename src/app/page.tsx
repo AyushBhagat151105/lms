@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import PurchaseButton from "@/components/PurchaseButton";
 
 export default async function Home() {
 
@@ -53,7 +54,7 @@ export default async function Home() {
                 </Badge>
 
                 <SignedIn>
-                  {/* <PurchaseButton courseId={course._id} /> */}
+                  <PurchaseButton courseId={course._id} />
                 </SignedIn>
 
                 <SignedOut>
