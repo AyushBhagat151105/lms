@@ -57,7 +57,7 @@ function Page() {
                                     Go to Course
                                 </Button>
                             </Link>
-                            <Link href='/courses'>
+                            <Link href='/course'>
                                 <Button variant='outline' className='w-full sm:w-auto'>
                                     Browse More Courses
                                 </Button>
