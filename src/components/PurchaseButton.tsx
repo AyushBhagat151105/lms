@@ -25,7 +25,7 @@ function PurchaseButton(
     } : "skip") || { hasAccess: false }
 
     const handlePurchase = async () => {
-        if (!user) return alert("Please log in to purchase the course.")
+        if (!user) return toast.error("Please log in to purchase the course.")
 
         setIsLoading(true)
         try {
